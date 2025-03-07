@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app" data-theme="light">
+        <!-- Main Content -->
+        <div class="container">
+            <div class="header">
+                <h1>Smart Home</h1>
+                <button id="themeToggle" class="theme-toggle">
+                    <i data-lucide="moon"></i>
+                </button>
+                <select id="roomSelector" style="
+                    padding: 10px; 
+                    font-size: 16px; 
+                    border: 2px solid pink; 
+                    background-color: pink; 
+                    color: white; 
+                    border-radius: 8px; 
+                    margin-left: 10px; 
+                    cursor: pointer; 
+                    outline: none;">
+                    <option value="living">Living Room</option>
+                    <option value="bedroom">Bedroom</option>
+                    <option value="kitchen">Kitchen</option>
+                    <option value="bathroom">Bathroom</option>
+                </select>
+                
+            </div>
+            
+            <div class="grid">
+                <!-- Light Control -->
+                <div class="card">
+                    <div class="card-content">
+                        <div>
+                            <h2>Living Room Light</h2>
+                            <p class="status" id="lightStatus">Brightness: <span id="brightnessValue">50</span>%</p>
+                        </div>
+                        <div class="lamp-container">
+                            <div class="lamp">
+                                <div class="lamp-head"></div>
+                                <div class="lamp-light"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <input 
+                        type="range" 
+                        id="brightnessSlider" 
+                        class="brightness-slider"
+                        min="0" 
+                        max="100" 
+                        value="50"
+                    >
+                </div>
+
+                <!-- Color Picker -->
+                <div class="card">
+                    <div class="card-content">
+                        <div>
+                            <h2>Light Color</h2>
+                            <p class="status">Selected: <span id="colorValue">#FFD700</span></p>
+                        </div>
+                    </div>
+                    <div class="color-picker-container">
+                        <div class="color-picker" id="colorPicker">
+                            <div class="color-pointer" id="colorPointer"></div>
+                        </div>
+                        <div class="color-presets">
+                            <button class="color-preset" data-color="#FFD700" style="background: #FFD700">
+                                <span class="preset-label">Warm</span>
+                            </button>
+                            <button class="color-preset" data-color="#64B5F6" style="background: #64B5F6">
+                                <span class="preset-label">Cool</span>
+                            </button>
+                            <button class="color-preset" data-color="#FF7043" style="background: #FF7043">
+                                <span class="preset-label">Sunset</span>
+                            </button>
+                            <button class="color-preset" data-color="#B39DDB" style="background: #B39DDB">
+                                <span class="preset-label">Relax</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temperature Control -->
+                <div class="card">
+                    <div class="card-content">
+                        <div>
+                            <h2>Temperature</h2>
+                            <p class="status">Current: <span id="tempValue">21</span>°C</p>
+                        </div>
+                        <i data-lucide="thermometer"></i>
+                    </div>
+                    <input 
+                        type="range" 
+                        id="tempSlider" 
+                        min="16" 
+                        max="30" 
+                        value="21" 
+                        class="temp-slider"
+                    >
+                </div>
+
+                <!-- Security Lock -->
+                <div class="card">
+                    <div class="card-content">
+                        <div>
+                            <h2>Front Door</h2>
+                            <p class="status" id="lockStatus">Locked</p>
+                        </div>
+                        <button id="lockToggle" class="toggle-button locked">
+                            <i data-lucide="lock"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="nav">
+            <div class="nav-container">
+                <button class="nav-button active" data-tab="home">
+                    <i data-lucide="home"></i>
+                </button>
+                <button class="nav-button" data-tab="settings">
+                    <i data-lucide="settings"></i>
+                </button>
+                <button class="nav-button" data-tab="profile">
+                    <i data-lucide="user"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
